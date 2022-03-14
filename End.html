@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+		<div>
+		Nhap so:
+		<input id="input_number" placeholder="Nhap so">
+		<button id="btn" type="button" onclick="check()">Kiem tra</button>
+		</div>
+	<div id="one"></div>
+	<div id="two"></div>
+	<div id="three"></div>
+	<div id="four"></div>
+	</form>
+	<script type="text/javascript">
+		var input = document.getElementById("input_number");
+		input.addEventListener("keyup", function(enter) {
+			if (enter.keyCode === 13) {
+				enter.preventDefault();
+				document.getElementById("btn").click();
+			}
+		});
+	</script>
+	<script type="text/javascript">
+		var solan=0;
+		function check()
+		{
+			solan=solan+1;
+			document.getElementById("four").innerHTML="So lan nhap"+solan;
+			let so=Number(document.getElementById('input_number').value);
+			let chuoi=[];
+			if(so%2==0)
+			{
+				document.getElementById('one').innerHTML="Day la so chan!";
+			}
+			else{
+				document.getElementById('one').innerHTML="Day la so le!";
+			}
+			if(so<2){
+				document.getElementById('two').innerHTML="Day khong phai la so nguyen to!"
+			}
+			else{
+				for(let i=2;i<so;i++)
+				{
+					if(so%i==0)
+					{
+						document.getElementById('two').innerHTML="Day khong phai la so nguyen to!"
+					}
+					else{
+						document.getElementById('two').innerHTML="Day la so nguyen to!";
+					}
+				}
+			}
+			if(so>0){
+				for(let i=1;i<=so;i++)
+				{
+					chuoi.push(i);
+				}
+				document.getElementById('three').innerHTML="Day gom: " + chuoi;
+
+			}
+			else{
+				for(let i=so;i<=0;i++)
+				{
+					chuoi.push(i);
+				}
+				document.getElementById('three').innerHTML="Day gom:"+ chuoi;
+			}
+		}
+	</script>
+
+
+
+</body>
+</html>
